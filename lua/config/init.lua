@@ -1,1 +1,2 @@
-print('hello from nvim config')
+require('config.keymaps')
+require('config.options')
