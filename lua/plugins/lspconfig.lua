@@ -33,7 +33,7 @@ return {
 		vim.lsp.config("vue_ls", vue_ls_config)
 		vim.lsp.config("ts_ls", ts_ls_config)
 
-		vim.lsp.enable({ "lua_ls", "ts_ls", "html", "cssls", "tailwindcss", "vue_ls", "ruff", "pyright" })
+		vim.lsp.enable({ "lua_ls", "ts_ls", "html", "cssls", "tailwindcss", "vue_ls", "ruff", "pyright", "emmet_language_server" })
 
 		-- diagnostic configuration
 		vim.diagnostic.config({
