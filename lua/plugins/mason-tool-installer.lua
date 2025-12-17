@@ -12,6 +12,9 @@ return {
 			"ruff",
 			"pyright",
 			"emmet-language-server",
+			"prettier",
+			"black",
+			"isort",
 		},
 	},
 	config = function(_, opts)
