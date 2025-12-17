@@ -24,8 +24,8 @@ set("v", "<", "<gv")
 set("v", ">", ">gv")
 
 -- navigate buffers with arrow keys
-set("n", "<Right>", ":bnext<CR>", opts)
-set("n", "<Left>", ":bprevious<CR>", opts)
+set("n", "<Right>", ":bnext<CR>")
+set("n", "<Left>", ":bprevious<CR>")
 
 -- escape from insert mode on jj
-set("i", "jj", "<ESC>", opts)
+set("i", "jj", "<ESC>")
