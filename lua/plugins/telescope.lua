@@ -19,7 +19,7 @@ return {
       desc = 'Telescope: Buffers'
     },
     {
-      '<leader>fk',
+      '<leader>sk',
       function() require('telescope.builtin').keymaps() end,
       desc = 'Telescope: Keymappings'
     },
