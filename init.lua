@@ -2,4 +2,5 @@
 vim.g.mapleader = " "
 
 -- load custom configurations
-require('config')
+require("config")
+
