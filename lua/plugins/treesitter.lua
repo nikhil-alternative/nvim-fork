@@ -1,30 +1,19 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    branch = 'master', 
-    lazy = false, 
+    ft = { "javascript", "typescript", "lua", "vue", "html", "python", "rust", "css" },
+    event = "BufReadPost",  -- lazy-load after opening a file
     build = ":TSUpdate",
     opts = {
-      -- A list of parser names, or "all"
-        ensure_installed = { "javascript", "typescript", "lua", "python", "html", "css" },
-
-        -- Install parsers synchronously (only applied to `ensure_installed`)
-        sync_install = false,
-
-        -- Automatically install missing parsers when entering buffer
-        -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-        auto_install = true,
-
+        ensure_installed = { "javascript", "typescript", "lua", "vue", "python", "rust", "html", "css" },
+        sync_install = false,   -- avoid blocking startup
+        auto_install = false,   -- install manually to save time
         highlight = {
-          -- `false` will disable the whole extension
-          enable = true,
-          -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-          -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-          -- Using this option may slow down your editor, and you may see some duplicate highlights.
-          -- Instead of true it can also be a list of languages
-          additional_vim_regex_highlighting = false,
+            enable = true,
+            additional_vim_regex_highlighting = false,
         },
+        indent = { enable = false }, -- huge perf win
     },
     config = function(_, opts)
-        require('nvim-treesitter.configs').setup(opts)
+        require("nvim-treesitter.configs").setup(opts)
     end,
 }

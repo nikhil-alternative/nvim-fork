@@ -1,5 +1,6 @@
 return {
 	"saghen/blink.cmp",
+	event = "InsertEnter", -- load only when entering insert mode
 	-- optional: provides snippets for the snippet source
 	dependencies = { "rafamadriz/friendly-snippets" },
 

@@ -1,6 +1,5 @@
 return {
 	"stevearc/conform.nvim",
-	event = { "BufWritePre" },
 	cmd = { "ConformInfo" },
 	keys = {
 		{
@@ -18,23 +17,33 @@ return {
 	},
 	opts = {
 		formatters_by_ft = {
-			-- The "all" key is a special filetype that applies to all buffers
-			-- unless a more specific filetype entry is present.
-			["*"] = { "prettier" },
+			-- PROBLEM: `*` will run for every filetype (even ones it shouldn’t)
+			-- ["*"] = { "prettier" },
+
+			-- Conform will run multiple formatters sequentially
+			-- python = { "isort", "black" },
 
 			-- Conform will run the first available formatter
 			-- javascript = { "prettier", "prettierd", stop_after_first = true },
 
-			lua = { "stylua" },
-			-- Conform will run multiple formatters sequentially
+			javascript = { "prettier" },
+			typescript = { "prettier" },
+			html = { "prettier" },
+			css = { "prettier" },
+			javacriptreact = { "prettier" },
+			typescriptreact = { "prettier" },
+			json = { "prettier" },
+			yaml = { "prettier" },
+            rust = { "rustfmt" },
 			python = { "isort", "black" },
+			lua = { "stylua" },
 		},
 		default_format_opts = {
 			lsp_format = "fallback",
+			timeout_ms = 1000, -- Without a timeout, slow formatters can block longer than expected.
 		},
 	},
 	config = function(_, opts)
 		require("conform").setup(opts)
 	end,
 }
-

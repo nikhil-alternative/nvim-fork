@@ -28,4 +28,5 @@ set("n", "<Right>", ":bnext<CR>")
 set("n", "<Left>", ":bprevious<CR>")
 
 -- escape from insert mode on jj
-set("i", "jj", "<ESC>")
+-- use better escape plugin to avoid delay
+-- set("i", "jj", "<ESC>")
