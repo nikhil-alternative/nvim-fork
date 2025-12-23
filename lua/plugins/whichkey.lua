@@ -13,9 +13,5 @@ return {
             { "<leader>c", group = "Code operations" },
             { "<leader>ih", desc = "Toggle inlay hints" },
         })
-
-        vim.keymap.set("n", "<leader>?", function()
-            wk.show({ global = false })
-        end, { desc = "Buffer Local Keymaps", silent = true })
     end,
 }

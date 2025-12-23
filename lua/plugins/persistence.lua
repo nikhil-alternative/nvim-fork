@@ -1,7 +1,17 @@
 return {
   "folke/persistence.nvim",
-  event = "BufReadPre", -- this will only start session saving when an actual file was opened
+  event = "BufReadPre", -- only save session after opening a real file
   opts = {
-    -- add any custom options here
-  }
+    -- where session files are stored
+    dir = vim.fn.stdpath("state") .. "/sessions/",
+    -- what to persist
+    options = { "buffers" },
+  },
+  keys = {
+    {
+      "<leader>qs",
+      function() require("persistence").load() end,
+      desc = "Persistence: Load Session",
+    }
+  },
 }
