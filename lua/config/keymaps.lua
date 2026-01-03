@@ -31,6 +31,9 @@ set("n", "<Left>", ":bprevious<CR>")
 -- use better escape plugin to avoid delay
 -- set("i", "jj", "<ESC>")
 
+-- save current buffer
+set("n", "<leader>w", "<cmd>write<CR>", { desc = "Save file" })
+
 -- Run current JavaScript file in a horizontal split terminal
 set("n", "<leader>rj", function()
 	vim.cmd("split | terminal node %")
