@@ -72,7 +72,7 @@ return {
 		-- This avoids starting unrelated LSPs on startup.
 		local enable_by_ft = {
 			lua = { "lua_ls" },
-			python = { "ruff", "pyright" },
+			python = { "pyright" },
 			rust = { "rust_analyzer" },
 			html = { "html", "emmet_language_server", "tailwindcss" },
 			css = { "cssls", "emmet_language_server", "tailwindcss" },

@@ -30,3 +30,13 @@ set("n", "<Left>", ":bprevious<CR>")
 -- escape from insert mode on jj
 -- use better escape plugin to avoid delay
 -- set("i", "jj", "<ESC>")
+
+-- Run current JavaScript file in a horizontal split terminal
+set("n", "<leader>rj", function()
+	vim.cmd("split | terminal node %")
+end, { desc = "Run current JavaScript file" })
+
+-- Run current Python file in a horizontal split terminal
+set("n", "<leader>rp", function()
+	vim.cmd("split | terminal python3 %")
+end, { desc = "Run current python file" })

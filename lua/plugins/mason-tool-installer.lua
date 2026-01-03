@@ -12,6 +12,7 @@ return {
 			"vue-language-server",
 			"ruff",
 			"pyright",
+			"rust-analyzer",
 			"rustfmt",
 			"emmet-language-server",
 			"prettierd",
