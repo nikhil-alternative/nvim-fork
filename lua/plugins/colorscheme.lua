@@ -10,18 +10,9 @@ return {
 			},
 		},
 		config = function(_, opts)
-			-- require("tokyonight").setup(opts)
-			-- vim.cmd.colorscheme("tokyonight-moon")
+			require("tokyonight").setup(opts)
+			vim.cmd.colorscheme("tokyonight-storm")
 		end,
-	},
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		priority = 1000,
-
-		config = function(_, opts)
-			require("tokyonight").load(opts)
-		end,
-	},
+	}
 }
 
