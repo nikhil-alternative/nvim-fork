@@ -74,12 +74,11 @@ return {
 			lua = { "lua_ls" },
 			python = { "pyright" },
 			rust = { "rust_analyzer" },
-			html = { "html", "emmet_language_server", "tailwindcss" },
-			css = { "cssls", "emmet_language_server", "tailwindcss" },
-			scss = { "cssls", "emmet_language_server", "tailwindcss" },
-			less = { "cssls", "emmet_language_server", "tailwindcss" },
-			javascript = { "ts_ls", "tailwindcss", "emmet_language_server" },
-			typescript = { "ts_ls", "tailwindcss", "emmet_language_server" },
+			html = { "html", "emmet_language_server" },
+			css = { "cssls" },
+			scss = { "cssls" },
+			javascript = { "ts_ls" },
+			typescript = { "ts_ls" },
 			javascriptreact = { "ts_ls", "tailwindcss", "emmet_language_server" },
 			typescriptreact = { "ts_ls", "tailwindcss", "emmet_language_server" },
 			vue = { "vue_ls", "ts_ls", "tailwindcss", "emmet_language_server" },
@@ -105,27 +104,15 @@ return {
 				vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = "LSP: " .. desc, silent = true })
 			end
 
-			-- Navigation
-			map("n", "gd", vim.lsp.buf.definition, "Go to definition")
-			map("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
-			map("n", "gi", vim.lsp.buf.implementation, "Go to implementation")
-			map("n", "gr", vim.lsp.buf.references, "Go to references")
-			map("n", "gt", vim.lsp.buf.type_definition, "Go to type definition")
-
-			-- Info
-			map("n", "K", function()
-				vim.lsp.buf.hover({
-					border = "rounded",
-					max_height = 25,
-					max_width = 120,
-				})
-			end, "Hover documentation")
-
 			map({ "n", "i" }, "<C-k>", vim.lsp.buf.signature_help, "Signature help")
 
 			-- Actions
-			map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "Code action")
+			map("n", "<leader>ca", vim.lsp.buf.code_action, "Code action")
 			map("n", "<leader>cn", vim.lsp.buf.rename, "Rename symbol")
+
+			-- LSP
+			map("n", "grd", vim.lsp.buf.definition, "Jump to the declaration of the symbol under the cursor.")
+			map("n", "grD", vim.lsp.buf.declaration, "Jump to the definition of the symbol under the cursor.")
 
 			-- Diagnostics
 			map("n", "[d", function()
@@ -155,9 +142,9 @@ return {
 
 				-- disable unused default keymaps from nvim 0.11
 				-- https://neovim.io/doc/user/lsp.html#_defaults
-				for _, k in ipairs({ "gra", "gri", "grn", "grr", "grt", "gO" }) do
-					pcall(vim.keymap.del, "n", k, { buffer = bufnr })
-				end
+				-- for _, k in ipairs({ "gra", "gri", "grn", "grr", "grt", "gO" }) do
+				-- 	pcall(vim.keymap.del, "n", k, { buffer = bufnr })
+				-- end
 
 				setup_keymaps(bufnr)
 				vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
